@@ -9,7 +9,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: response });
   } catch (error) {
     return NextResponse.json(
-      { error: "Failed to process request" },
+      {
+        error: "Failed to process request",
+        details: error,
+      },
       { status: 500 },
     );
   }
