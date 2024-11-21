@@ -9,7 +9,7 @@ Please be short
       {
         method: "POST",
         headers: {
-          Authorization: process.env.OPEN_ROUTER_API_KEY as string,
+          Authorization: `${process.env.OPEN_ROUTER_API_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
