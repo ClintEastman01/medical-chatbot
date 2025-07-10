@@ -43,7 +43,7 @@ bun install
 
 1. Copy the example environment file:
 ```bash
-cp .env.example .env.local
+cp example.env .env.local
 ```
 
 2. Get your OpenRouter API key:
