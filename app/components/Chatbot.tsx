@@ -16,6 +16,11 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -121,9 +126,11 @@ export default function Chatbot() {
               >
                 {message.content}
               </div>
-              <span className="text-xs text-gray-400 mt-1">
-                {formatTime(message.timestamp)}
-              </span>
+              {isMounted && (
+                <span className="text-xs text-gray-400 mt-1">
+                  {formatTime(message.timestamp)}
+                </span>
+              )}
             </div>
 
             {message.role === "user" && (

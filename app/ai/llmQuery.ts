@@ -26,6 +26,7 @@ Please be short
     const data = await completion.json();
     return data.choices[0].message.content;
   } catch (error) {
-    return error;
+    console.error("Error in aiQuery:", error);
+    return "Sorry, I'm having trouble processing your request right now. Please try again later.";
   }
 };
